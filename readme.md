@@ -64,47 +64,47 @@ Edit `strategy_prompts.json` to customize renovation strategies
 ```json
 [
   {
-    instruction Explain the concept...,
-    input Given context...,
-    output The explanation is...
+    "instruction": "Explain the concept...",
+    "input": "Given context...",
+    "output": "The explanation is..."
   }
 ]
 ```
 
 ## Output Files
 
-### 1. Final Dataset (`dolly_u.json`)
-Combined renovated and reserved high-quality samples with metadata
+### 1. **Final Dataset** (`dolly_u.json`)
+Combined renovated and reserved high-quality samples with metadata:
 ```json
 {
-  instruction ...,
-  input ...,
-  output ...,
-  meta {
-    original_id 0,
-    potential_entropy 0.456,
-    strategy_mark [1, 2, 0],
-    zone renovation
+  "instruction": "...",
+  "input": "...",
+  "output": "...",
+  "meta": {
+    "original_id": 0,
+    "potential_entropy": 0.456,
+    "strategy_mark": [1, 2, 0],
+    "zone": "renovation"
   }
 }
 ```
 
-### 2. Evaluation Report (`dolly_evaluation.json`)
+### 2. **Evaluation Report** (`dolly_evaluation.json`)
 Detailed analysis for each sample including scores, gaps, and entropy metrics.
 
-### 3. Statistics (`dolly_pipeline.json`)
-Pipeline performance metrics
+### 3. **Statistics** (`dolly_pipeline.json`)
+Pipeline performance metrics:
 ```json
 {
-  total_samples 1000,
-  segmentation {
-    high_noise_zone {count 100, percentage 10.0},
-    renovation_zone {count 700, renovated 680},
-    low_potential_zone {reserved_high_quality 100}
+  "total_samples": 1000,
+  "segmentation": {
+    "high_noise_zone": {"count": 100, "percentage": 10.0},
+    "renovation_zone": {"count": 700, "renovated": 680},
+    "low_potential_zone": {"reserved_high_quality": 100}
   },
-  final_dataset_composition {
-    total_final_samples 780,
-    retention_rate 78.0
+  "final_dataset_composition": {
+    "total_final_samples": 780,
+    "retention_rate": 78.0
   }
 }
 ```
@@ -118,15 +118,15 @@ python uldp_pipeline.py
 
 ### Environment Variables
 ```bash
-export OPENAI_API_KEY=your-api-key
+export OPENAI_API_KEY="your-api-key"
 python uldp_pipeline.py
 ```
 
 ### Custom Configuration
-Modify the configuration section in the script
+Modify the configuration section in the script:
 ```python
-API_KEY = your-api-key
-BASE_URL = httpsapi.openai.comv1
-MODEL_NAME = gpt-4o
-LOCAL_MODEL_ID = pathtolocalmodel
+API_KEY = "your-api-key"
+BASE_URL = "https://api.openai.com/v1"
+MODEL_NAME = "gpt-4o"
+LOCAL_MODEL_ID = "path/to/local/model"
 ```
