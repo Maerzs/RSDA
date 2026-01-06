@@ -39,26 +39,27 @@ STATISTICS_FILE = pipeline_stats.json
 ```
 
 ### Strategy Configuration
-Edit `strategy_prompts.json` to customize renovation strategies
+Edit `strategy_prompts.json` to customize renovation strategies:
 ```json
 {
-  instruction {
-    0 Keep unchanged,
-    1 Rewrite with positive tone...
+  "instruction": {
+    "0": "Keep unchanged",
+    "1": "Rewrite with positive tone..."
   },
-  input {
-    0 Keep unchanged,
-    1 Add rich context...,
-    2 Perform domain migration...
+  "input": {
+    "0": "Keep unchanged",
+    "1": "Add rich context...",
+    "2": "Perform domain migration..."
   },
-  output {
-    0 Add Chain-of-Thought...,
-    1 Provide diverse solutions...,
-    2 Make more concise...,
-    3 Enrich background...
+  "output": {
+    "0": "Add Chain-of-Thought...",
+    "1": "Provide diverse solutions...",
+    "2": "Make more concise...",
+    "3": "Enrich background..."
   }
 }
 ```
+
 ## Input Data Format
 
 ```json
